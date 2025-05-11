@@ -1,0 +1,12 @@
+{
+  "name": "financial-goals-app",
+  "version": "1.0.0",
+  "description": "Simple financial goals planning app with compounding calculator",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
