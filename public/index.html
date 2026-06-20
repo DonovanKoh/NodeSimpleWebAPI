@@ -11,6 +11,11 @@
     <h1 class="text-2xl font-bold mb-4">Financial Goals Planner</h1>
     <form id="goalForm" class="space-y-4">
       <div>
+        <label class="block">Goal Name</label>
+        <input type="number" id="goalName" class="w-full border p-2 rounded" required />
+      </div>
+      <div>
+      <div>
         <label class="block">Initial Investment ($)</label>
         <input type="number" id="principal" class="w-full border p-2 rounded" required />
       </div>
@@ -38,6 +43,7 @@
   <script>
     document.getElementById('goalForm').addEventListener('submit', async function(e) {
       e.preventDefault();
+      const goalName = document.getElementById('goalName').value;
       const principal = parseFloat(document.getElementById('principal').value);
       const rate = parseFloat(document.getElementById('rate').value);
       const years = parseFloat(document.getElementById('years').value);
@@ -46,7 +52,7 @@
       const res = await fetch('/api/financial-goal', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ principal, rate, years, timesPerYear })
+        body: JSON.stringify({ principal, rate, years, timesPerYear, goalName })
       });
 
       const data = await res.json();
