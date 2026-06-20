@@ -43,7 +43,7 @@
       const years = parseFloat(document.getElementById('years').value);
       const timesPerYear = parseFloat(document.getElementById('timesPerYear').value);
 
-      const res = await fetch('/api/calculate', {
+      const res = await fetch('/api/financial-goal', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ principal, rate, years, timesPerYear })
