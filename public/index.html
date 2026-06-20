@@ -58,7 +58,8 @@
       const data = await res.json();
       if (res.ok) {
         document.getElementById('finalAmount').textContent = data.amount;
-        document.getElementById('interestEarned').textContent = parseFloat(data.amount) - parseFloat(data.principal);
+        let interestEarned = (parseFloat(data.amount) - parseFloat(data.principal)).toFixed(2);
+        document.getElementById('interestEarned').textContent = interestEarned;
         document.getElementById('result').classList.remove('hidden');
       }
     });
